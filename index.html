@@ -64,8 +64,8 @@
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
-    z-index: 1000;
-    padding: 28px 60px;
+    z-index: 1100;
+    padding: 20px 60px;
     display: flex; align-items: center; justify-content: space-between;
     background: transparent;
     transition: background 0.4s ease, padding 0.3s ease;
@@ -73,22 +73,22 @@
   nav.scrolled {
     background: rgba(240, 235, 225, 0.92);
     backdrop-filter: blur(12px);
-    padding: 18px 60px;
+    padding: 14px 60px;
     border-bottom: 1px solid rgba(46,31,15,0.08);
   }
   .nav-logo {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--brown);
     text-decoration: none;
   }
-  .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 42px; list-style: none; }
+  .nav-logo span { color: var(--brown); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a {
     font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--brown-mid);
@@ -98,13 +98,13 @@
   .nav-links a:hover { color: var(--brown); }
   .nav-cta {
     font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
+    font-size: 0.56rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     background: var(--brown);
     color: var(--cream);
     border: none;
-    padding: 12px 28px;
+    padding: 8px 18px;
     cursor: none;
     transition: background 0.3s, color 0.3s;
     text-decoration: none;
@@ -794,11 +794,82 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
   .reveal-delay-4 { transition-delay: 0.4s; }
 
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px; height: 32px;
+    background: none; border: none;
+    cursor: pointer;
+    padding: 4px;
+    position: relative;
+    z-index: 1200;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px; height: 1.5px;
+    background: var(--brown);
+    transition: transform 0.3s ease;
+    transform-origin: center;
+  }
+  .nav-hamburger.open span:nth-child(1) {
+    transform: translateY(3.25px) rotate(45deg);
+  }
+  .nav-hamburger.open span:nth-child(2) {
+    transform: translateY(-3.25px) rotate(-45deg);
+  }
+
+  /* MOBILE MENU OVERLAY */
+  .mobile-menu {
+    display: none;
+    position: fixed; inset: 0;
+    background: var(--cream);
+    z-index: 1050;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .mobile-menu a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem; font-weight: 300;
+    color: var(--brown); text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .mobile-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+    background: var(--brown); color: var(--cream);
+    padding: 14px 36px; text-decoration: none;
+    margin-top: 8px;
+  }
+
   /* MOBILE */
   @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    nav.scrolled { padding: 14px 24px; }
+    /* Hide cursor completely on mobile */
+    .cursor { display: none !important; }
+    * { cursor: auto !important; }
+    body { cursor: auto; }
+    a, button { cursor: pointer; }
+
+    nav { padding: 16px 24px; }
+    nav.scrolled { padding: 12px 24px; }
     .nav-links { display: none; }
+    .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+    .mobile-menu { display: flex; }
+
     section { padding: 80px 24px; }
     .hero { padding: 100px 24px 60px; }
     .what-grid { grid-template-columns: 1fr; }
@@ -808,6 +879,7 @@
     .case-card { grid-template-columns: 1fr; }
     .case-preview { min-height: 220px; }
     .price-card { padding: 60px 32px; }
+    .addons-row { flex-direction: column; }
     footer { padding: 30px 24px; }
     .cta-contact-row { gap: 28px; }
     .btn-primary, .btn-ghost { padding: 16px 28px; }
@@ -827,7 +899,7 @@
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#" class="nav-logo">Arq<span>on</span> Labs</a>
+  <a href="#" class="nav-logo">Arqon Labs</a>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
     <li><a href="#process">Process</a></li>
@@ -835,7 +907,20 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="https://wa.me/918919585628?text=Hi!%20I%27m%20interested%20in%20getting%20a%20landing%20page%20from%20Arqon%20Labs" class="nav-cta" target="_blank">Get Started</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work" class="mobile-link">Work</a>
+  <a href="#process" class="mobile-link">Process</a>
+  <a href="#pricing" class="mobile-link">Pricing</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+  <a href="https://wa.me/918919585628?text=Hi!%20I%27m%20interested%20in%20getting%20a%20landing%20page%20from%20Arqon%20Labs" class="mobile-cta" target="_blank">Get Started</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -1138,6 +1223,24 @@ document.querySelectorAll('a, button, .before-after, .price-card, .what-item, .c
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// HAMBURGER MENU
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+document.querySelectorAll('.mobile-link, .mobile-cta').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.style.overflow = '';
+  });
 });
 
 // BEFORE/AFTER SLIDER
