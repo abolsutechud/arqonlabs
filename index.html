@@ -542,6 +542,8 @@
     transition: border-color 0.3s;
   }
   .case-card:hover { border-color: var(--gold); }
+  .case-card-reverse { direction: rtl; }
+  .case-card-reverse > * { direction: ltr; }
   .case-preview {
     background: #0A0A08;
     position: relative; overflow: hidden;
@@ -1072,7 +1074,57 @@
   </div>
 </section>
 
-<!-- PROCESS -->
+<!-- CASE STUDIES (section 3) -->
+<section class="cases" id="cases">
+  <span class="section-tag reveal">— Case Studies</span>
+  <h2 class="section-title reveal">Work that<br><em>speaks.</em></h2>
+
+  <div class="case-card reveal" style="margin-bottom: 32px;">
+    <div class="case-preview">
+      <iframe src="https://moderngym.vercel.app" title="Modern Gym website preview" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+      <div class="case-preview-overlay"></div>
+      <span class="case-preview-tag">Live Website ↗</span>
+    </div>
+    <div class="case-info">
+      <span class="case-client">Client — 001</span>
+      <h3 class="case-name">Modern Gym<br><em>& Fitness Club</em></h3>
+      <p class="case-desc">
+        A full landing page for Kadiri's newest premium gym. Built around their grand opening, designed to drive WhatsApp inquiries and walk-ins. Dark luxury aesthetic, mobile-first, live in under 5 days.
+      </p>
+      <div class="case-tags">
+        <span class="case-tag">Fitness</span>
+        <span class="case-tag">Landing Page</span>
+        <span class="case-tag">WhatsApp CTA</span>
+        <span class="case-tag">Mobile-First</span>
+      </div>
+      <a href="https://moderngym.vercel.app" class="case-link" target="_blank">View Live Site</a>
+    </div>
+  </div>
+
+  <div class="case-card reveal case-card-reverse">
+    <div class="case-preview">
+      <iframe src="https://newmake.vercel.app" title="Newmake website preview" loading="lazy" scrolling="no" tabindex="-1"></iframe>
+      <div class="case-preview-overlay"></div>
+      <span class="case-preview-tag">Live Website ↗</span>
+    </div>
+    <div class="case-info">
+      <span class="case-client">Client — 002</span>
+      <h3 class="case-name">Newmake<br><em>Exim</em></h3>
+      <p class="case-desc">
+        A landing page for an import-export company — built to establish credibility and drive business inquiries. Clean layout, strong typographic hierarchy, and a conversion-focused structure delivered in days.
+      </p>
+      <div class="case-tags">
+        <span class="case-tag">Import Export</span>
+        <span class="case-tag">Landing Page</span>
+        <span class="case-tag">Brand Identity</span>
+        <span class="case-tag">Mobile-First</span>
+      </div>
+      <a href="https://newmake.vercel.app" class="case-link" target="_blank">View Live Site</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS (section 4) -->
 <section class="process" id="process">
   <span class="section-tag reveal">— How It Works</span>
   <h2 class="section-title reveal">Simple process.<br><em>Extraordinary result.</em></h2>
@@ -1100,33 +1152,6 @@
       <div class="step-day">D5</div>
       <div class="step-title">Live</div>
       <p class="step-desc">Your site goes live. Deployed and ready for traffic. We hand over everything you need to own it.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CASE STUDY -->
-<section class="cases" id="cases">
-  <span class="section-tag reveal">— Case Study</span>
-  <h2 class="section-title reveal">Work that<br><em>speaks.</em></h2>
-  <div class="case-card reveal">
-    <div class="case-preview">
-      <iframe src="https://moderngym.vercel.app" title="Modern Gym website preview" loading="lazy" scrolling="no" tabindex="-1"></iframe>
-      <div class="case-preview-overlay"></div>
-      <span class="case-preview-tag">Live Website ↗</span>
-    </div>
-    <div class="case-info">
-      <span class="case-client">Client — 001</span>
-      <h3 class="case-name">Modern Gym<br><em>& Fitness Club</em></h3>
-      <p class="case-desc">
-        A full landing page for Kadiri's newest premium gym. Built around their grand opening, designed to drive WhatsApp inquiries and walk-ins. Dark luxury aesthetic, mobile-first, live in under 5 days.
-      </p>
-      <div class="case-tags">
-        <span class="case-tag">Fitness</span>
-        <span class="case-tag">Landing Page</span>
-        <span class="case-tag">WhatsApp CTA</span>
-        <span class="case-tag">Mobile-First</span>
-      </div>
-      <a href="https://moderngym.vercel.app" class="case-link" target="_blank">View Live Site</a>
     </div>
   </div>
 </section>
@@ -1197,7 +1222,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Arq<span>on</span> Labs</div>
+  <div class="footer-logo">Arqon Labs</div>
   <div class="footer-tagline">Minimal. Impactful. Arqon.</div>
   <a href="https://instagram.com/arqon.labs" class="footer-social" target="_blank">@arqon.labs ↗</a>
 </footer>
